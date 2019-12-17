@@ -18,38 +18,38 @@ public class Java_SQL_ClothesShop {
 		System.out.println("Connected to database.");
 		
 		System.out.println("");
-        System.out.println("");
-        System.out.println("");
+        	System.out.println("");
+        	System.out.println("");
 		
 		try { 
 			//Select all items from the table "ClothesInventory"
-	        Statement itemStmt = conn.createStatement();
-	        String itemQuery = "SELECT item FROM ClothesInventory";
-	        ResultSet itemsSet = itemStmt.executeQuery(itemQuery);
-	        
-	        //Select all quantities from the table "ClothesInventory"
-	        Statement quantityStmt = conn.createStatement();
-	        String quantityQuery = "SELECT quantity FROM ClothesInventory";
-	        ResultSet quantitiesSet = quantityStmt.executeQuery(quantityQuery);
-	        
-	        //Print out all items and their respective quantities
-	        while(itemsSet.next() && quantitiesSet.next()) {
-	        	System.out.println(itemsSet.getString("item") + " x " + quantitiesSet.getInt("quantity"));
-	        }
-	        
-	        System.out.println("");
-	        System.out.println("");
-	        System.out.println("");
-	        
-	        purchaseItem("Blue shirt", 2);  //Execute the purchaseItem() function to purchase 2 Blue shirts.
-	        returnItem("Dark Green shirt", 3);  //Execute the returnItem() function to return 3 Dark Green shirts.
-	        
-	        System.out.println("Closing connection...");
-	        conn.close();
-	        System.out.println("Connection closed.");
+			Statement itemStmt = conn.createStatement();
+			String itemQuery = "SELECT item FROM ClothesInventory";
+			ResultSet itemsSet = itemStmt.executeQuery(itemQuery);
+
+			//Select all quantities from the table "ClothesInventory"
+			Statement quantityStmt = conn.createStatement();
+			String quantityQuery = "SELECT quantity FROM ClothesInventory";
+			ResultSet quantitiesSet = quantityStmt.executeQuery(quantityQuery);
+
+			//Print out all items and their respective quantities
+			while(itemsSet.next() && quantitiesSet.next()) {
+				System.out.println(itemsSet.getString("item") + " x " + quantitiesSet.getInt("quantity"));
+			}
+
+			System.out.println("");
+			System.out.println("");
+			System.out.println("");
+
+			purchaseItem("Blue shirt", 2);  //Execute the purchaseItem() function to purchase 2 Blue shirts.
+			returnItem("Dark Green shirt", 3);  //Execute the returnItem() function to return 3 Dark Green shirts.
+
+			System.out.println("Closing connection...");
+			conn.close();
+			System.out.println("Connection closed.");
 		}
 		catch (SQLException ex1) {
-	        ex1.printStackTrace();
+	        	ex1.printStackTrace();
 		}
 	}
 	
@@ -66,13 +66,13 @@ public class Java_SQL_ClothesShop {
 			purchaseItemsStmt.executeUpdate(purchaseItemsQuery);
 			
 			System.out.println("");
-	        System.out.println("");
-	        System.out.println("");
-	        
-	        printClothesInventory();
+			System.out.println("");
+			System.out.println("");
+
+			printClothesInventory();
 		}
 		catch (SQLException ex2) {
-	        ex2.printStackTrace();
+	        	ex2.printStackTrace();
 		}
 	}
 	
@@ -87,13 +87,13 @@ public class Java_SQL_ClothesShop {
 			returnItemsStmt.executeUpdate(returnItemsQuery);
 			
 			System.out.println("");
-	        System.out.println("");
-	        System.out.println("");
-	        
-	        printClothesInventory();
+			System.out.println("");
+			System.out.println("");
+
+			printClothesInventory();
 		}
-		catch (SQLException ex2) {
-	        ex2.printStackTrace();
+		catch (SQLException ex3) {
+	        	ex3.printStackTrace();
 		}
 	}
 	
@@ -102,19 +102,19 @@ public class Java_SQL_ClothesShop {
 	public static void printClothesInventory() {
 		try {
 			Statement allStmt = conn.createStatement();
-	        String allQuery = "SELECT * FROM ClothesInventory";
-	        ResultSet allSet = allStmt.executeQuery(allQuery);
-	        
-	        while(allSet.next()) {
-	        	System.out.println(allSet.getString("item") + " x " + allSet.getInt("quantity"));
-	        }
-	        
-	        System.out.println("");
-	        System.out.println("");
-	        System.out.println("");
+			String allQuery = "SELECT * FROM ClothesInventory";
+			ResultSet allSet = allStmt.executeQuery(allQuery);
+
+			while(allSet.next()) {
+				System.out.println(allSet.getString("item") + " x " + allSet.getInt("quantity"));
+			}
+
+			System.out.println("");
+			System.out.println("");
+			System.out.println("");
 		}
-		catch (SQLException ex3) {
-	        ex3.printStackTrace();
+		catch (SQLException ex4) {
+	        	ex4.printStackTrace();
 		}
 	}
 	
